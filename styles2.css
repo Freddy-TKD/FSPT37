@@ -172,6 +172,6 @@ body {
   padding: var(--espaciado);
   /* margin-top usando rem */
   margin-top: var(--espaciado);
-  tamaño de la fuente
+  /* tamaño de la fuent */
   font-size: 1.5rem;
 }
