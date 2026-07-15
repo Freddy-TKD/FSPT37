@@ -1,0 +1,237 @@
+/* 1 */
+/* TODO: Implementa un reset básico */
+* {
+  /* Remueve márgenes y padding predeterminados */
+  margin: 0;
+  padding: 0;
+  /* Configura box-sizing: border-box */
+  box-sizing: border-box;
+}
+
+/* 2 */
+/* TODO: Configura el html */
+html {
+  /* font-size debe ser 100% para accesibilidad */
+  font-size: 100%;
+}
+
+/* TODO: Estilos base del body */
+
+body {
+  /* font-family con fuentes del sistema */
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  /* font-size en rem */
+  font-size: 1.25rem;
+  /* line-height apropiado */
+  line-height: 1.5;
+  /* color de texto */
+  color: #bbd281;
+  /* background-color */
+  background-color: #f1cfed;
+}
+
+/* TODO: Define variables usando HSL */
+:root {
+  /* Color primario base usando HSL */
+  --color-primario: hsl(220, 80%, 50%);
+  /* Ejemplo: --color-primario: hsl(220, 80%, 50%); */
+
+  /* Variación clara del color primario */
+
+  /* Usa el mismo Hue pero incrementa Lightness */
+  --color-primario-claro: hsl(282, 68%, 60%);
+  /* Variación oscura del color primario */
+  --color-primario-oscuro: hsl(282, 68%, 30%);
+  /* Usa el mismo Hue pero reduce Lightness */
+
+  /* Colores de texto y fondo */
+  --color-texto: hsl(0, 0%, 20%);
+  --color-fondo: hsl(68, 44%, 93%);
+
+  /* Espaciado */
+  --espaciado: 1rem;
+}
+
+
+/* 3 */
+/*
+ * INVESTIGACIÓN: ¿Qué es HSL y por qué usarlo?
+ * 
+ * 1. ¿Qué significa cada valor en hsl()?
+ *    - H (Hue): representa el tono del color, es el ángulo del círculo cromático.
+ *    - S (Saturation): representa la saturación o intensidad del color.
+ *    - L (Lightness): representa la claridad del color, entre más alto, más claro; entre más bajo, más oscuro.
+ * 
+ * 2. ¿Por qué HSL puede ser más útil que HEX o RGB?
+ *    - Permite ajustar el color más fácilmente cambiando solo el tono, saturación o luminosidad.
+ *    - Es más intuitivo para crear variaciones de un mismo color, como versiones claras u oscuras.
+ * 
+ * 3. Ejemplo práctico: ¿Cuándo usarías HSL en un proyecto real?
+ *    - Cuando querés diseñar una paleta de colores consistente para un sitio web.
+ *    - Cuando necesitás modificar rápidamente colores claros/oscuro sin cambiar toda la paleta.
+ */
+
+
+/* 4 */
+/* TODO: Estiliza el header usando Flexbox */
+.header {
+  /* background-color usando variable */
+  background-color: var(--color-primario);
+  /* padding usando rem */
+  padding: var(--espaciado);
+  /* box-shadow sutil */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.header-contenido {
+  /* max-width para limitar ancho */
+  max-width: 1200px;
+  /* margin: 0 auto para centrar */
+  margin: 0 auto;
+  /* padding usando rem */
+  padding: var(--espaciado);
+  /* text-align: center */
+  text-align: center;
+}
+
+.titulo-principal {
+  /* font-size usando rem (2.5rem - 3rem) */
+  font-size: 2.5rem;
+  /* margin-bottom usando rem */
+  margin-bottom: var(--espaciado);
+  /* color usando variable HSL */
+  color: var(--color-texto);
+}
+
+.descripcion {
+  /* font-size usando rem */
+  font-size: 1.25rem;
+  /* color más claro para contraste */
+  color: var(--color-fondo);
+}
+
+/* 5 */
+/* TODO: Implementa Grid para la galería */
+.contenedor {
+  /* max-width usando rem */
+  max-width: 1200px;
+  /* margin: 0 auto */
+  margin: 0 auto;
+  /* padding usando rem */
+  padding: var(--espaciado);
+}
+
+.galeria {
+  /* display: grid */
+  display: grid;
+  /* grid-template-columns: 3 columnas iguales con repeat() */
+  grid-template-columns: repeat(3, 1fr);
+  /* gap entre tarjetas */
+  gap: var(--espaciado);
+}
+
+/* 6 - TARJETAS DE FOTOS*/
+/* TODO: Estiliza las tarjetas */
+.foto-tarjeta {
+  /* background-color */
+  background-color: var(--color-fondo);
+  /* border-radius */
+  border-radius: 8px;
+  /* box-shadow */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  /* overflow: hidden para esquinas redondeadas de imagen */
+  overflow: hidden;
+  /* transition para hover */
+  transition: transform 0.3s ease;
+}
+
+.foto-tarjeta img {
+  /* width: 100% */
+  width: 100%;
+  /* height: 250px */
+  height: 250px;
+  /* object-fit: cover */
+  object-fit: cover;
+  /* display: block */
+  display: block;
+}
+
+.foto-info {
+  /* padding usando rem */
+  padding: var(--espaciado);
+}
+
+.foto-titulo {
+  /* font-size usando rem */
+  font-size: 1.5rem;
+  /* margin-bottom */
+  margin-bottom: var(--espaciado);
+  /* color usando variable */
+  color: var(--color-texto);
+}
+
+.foto-descripcion {
+  /* font-size usando rem */
+  font-size: 1.25rem;
+  /* color más claro */
+  color: var(--color-fondo);
+  /* margin: 0 */
+  margin: 0;
+}
+
+/* TODO: Efecto hover */
+.foto-tarjeta:hover {
+  /* transform: translateY(-4px) */
+  transform: translateY(-4px);
+  /* box-shadow más pronunciada */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* 7 FOOTER */
+
+/* TODO: Estiliza el footer */
+.footer {
+  /* background-color usando variable oscura */
+  background-color: var(--color-secundario);
+  /* color claro */
+  color: var(--color-fondo);
+  /* text-align: center */
+  text-align: center;
+  /* padding usando rem */
+  padding: var(--espaciado);
+  /* margin-top usando rem */
+  margin-top: var(--espaciado);
+}
+
+/* 8 - media queries */
+
+/* TODO: Tablets - 2 columnas */
+@media (max-width: 768px) {
+  .galeria {
+    /* grid-template-columns: 2 columnas */
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .titulo-principal {
+    /* font-size más pequeño */
+    font-size: 1.25rem;
+  }
+}
+
+/* TODO: Móviles - 1 columna */
+@media (max-width: 480px) {
+  .galeria {
+    /* grid-template-columns: 1 columna */
+    grid-template-columns: 1fr;
+  }
+
+  .titulo-principal {
+    /* font-size aún más pequeño */
+    font-size: 1.25rem;
+  }
+
+  .contenedor {
+    /* padding reducido */
+    padding: var(--espaciado);
+  }
+}

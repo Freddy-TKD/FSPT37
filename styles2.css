@@ -1,0 +1,177 @@
+/* TODO: Implementa un reset básico */
+* {
+  /* Remueve márgenes y padding predeterminados */
+  margin: 0;
+  padding: 0;
+  /* Configura box-sizing: border-box */
+  box-sizing: border-box;
+}
+
+/* TODO: Configura el html */
+html {
+  /* font-size debe ser 100% para accesibilidad */
+  font-size: 100%;
+}
+
+/* TODO: Estilos base del body */
+body {
+  /* font-family con fuentes del sistema */
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  /* font-size en rem */
+  font-size: 1rem;
+  /* line-height apropiado */
+  line-height: 1.5;
+  /* color de texto */
+  color: #333;
+  /* background-color */
+  background-color: #639fdb47;
+}
+
+/* TODO: Define variables usando HSL */
+:root {
+  /* Color primario base usando HSL */
+  --color-primario: hsla(257, 52%, 51%, 0.404);
+  /* Ejemplo: --color-primario: hsl(220, 80%, 50%); */
+
+  /* Variación clara del color primario */
+  --color-primario-claro: hsl(320, 60%, 62%);
+  /* Usa el mismo Hue pero incrementa Lightness */
+
+  /* Variación oscura del color primario */
+  --color-primario-oscuro: hsl(160, 24%, 57%);
+  /* Usa el mismo Hue pero reduce Lightness */
+
+  /* Colores de texto y fondo */
+  --color-texto: #42219c;
+  --color-fondo: #fff;
+  /* Espaciado */
+  --espaciado: 2rem;
+}
+
+/* TODO: Estiliza el header usando Flexbox */
+.header {
+  /* background-color usando variable */
+  background-color: var(--color-primario);
+  /* padding usando rem */
+  padding: var(--espaciado);
+  /* box-shadow sutil */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.header-contenido {
+  /* max-width para limitar ancho */
+  max-width: 1200px;
+  /* margin: 0 auto para centrar */
+  margin: 0 auto;
+  /* padding usando rem */
+  padding: 0 var(--espaciado);
+  /* text-align: center */
+  text-align: center;
+}
+
+.titulo-principal {
+  /* font-size usando rem (2.5rem - 3rem) */
+  font-size: 2.5rem;
+  /* margin-bottom usando rem */
+  margin-bottom: var(--espaciado);
+  /* color usando variable HSL */
+  color: var(--color-texto);
+}
+
+.descripcion {
+  /* font-size usando rem */
+  font-size: 1.25rem;
+  /* color más claro para contraste */
+  color: var(--color-texto);
+}
+
+/* TODO: Implementa Grid para la galería */
+.contenedor {
+  /* max-width usando rem */
+  max-width: 1200px;
+  /* margin: 0 auto */
+  margin: 0 auto;
+  /* padding usando rem */
+  padding: var(--espaciado);
+}
+
+.galeria {
+  /* display: grid */
+  display: grid;
+  /* grid-template-columns: 3 columnas iguales con repeat() */
+  grid-template-columns: repeat(3, 1fr);
+  /* gap entre tarjetas */
+  gap: var(--espaciado);
+}
+
+/* TODO: Estiliza las tarjetas */
+.foto-tarjeta {
+  /* background-color */
+  background-color: var(--color-fondo);
+  /* border-radius */
+  border-radius: 8px;
+  /* box-shadow */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  /* overflow: hidden para esquinas redondeadas de imagen */
+  overflow: hidden;
+  /* transition para hover */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.foto-tarjeta img {
+  /* width: 100% */
+  width: 100%;
+  /* height: 250px */
+  height: 250px;
+  /* object-fit: cover */
+  object-fit: cover;
+  /* display: block */
+  display: block;
+}
+
+.foto-info {
+  /* padding usando rem */
+  padding: var(--espaciado);
+}
+
+.foto-titulo {
+  /* font-size usando rem */
+  font-size: 1.5rem;
+  /* margin-bottom */
+  margin-bottom: var(--espaciado);
+  /* color usando variable */
+  color: var(--color-texto);
+}
+
+.foto-descripcion {
+  /* font-size usando rem */
+  font-size: 1.25rem;
+  /* color más claro */
+  color: var(--color-texto);
+  /* margin: 0 */
+  margin: 0;
+}
+
+/* TODO: Efecto hover */
+.foto-tarjeta:hover {
+  /* transform: translateY(-4px) */
+  transform: translateY(-4px);
+  /* box-shadow más pronunciada */
+  box-shadow: 0 16px 32px rgba(27, 45, 137, 0.5);
+}
+
+/* TODO: Estiliza el footer */
+.footer {
+  /* background-color usando variable oscura */
+  background-color: var(--color-primario-oscuro);
+  /* color de texto usando variable clara */
+  color: var(--color-texto-claro);
+  /* text-align: center */
+  text-align: center;
+  /* padding usando rem */
+  padding: var(--espaciado);
+  /* margin-top usando rem */
+  margin-top: var(--espaciado);
+  tamaño de la fuente
+  font-size: 1.5rem;
+}
