@@ -1,14 +1,25 @@
-/* 1 */
+
+
+/* 1. Reset y configuración base */
 /* TODO: Implementa un reset básico */
 * {
   /* Remueve márgenes y padding predeterminados */
-  margin: 0;
-  padding: 0;
-  /* Configura box-sizing: border-box */
+  margin:0;
+  padding:0;
+  /* Configua box-sizing: border-box */
   box-sizing: border-box;
 }
 
-/* 2 */
+img {
+  display: block;
+  border: 0;
+  max-width: 100%;
+}
+
+.foto-tarjeta {
+  line-height: 0;
+}
+
 /* TODO: Configura el html */
 html {
   /* font-size debe ser 100% para accesibilidad */
@@ -16,107 +27,108 @@ html {
 }
 
 /* TODO: Estilos base del body */
-
 body {
   /* font-family con fuentes del sistema */
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   /* font-size en rem */
-  font-size: 1.25rem;
+  font-size: 2rem;
   /* line-height apropiado */
   line-height: 1.5;
-  /* color de texto */
-  color: #bbd281;
+ /* color de texto */
+  color: var(--color-texto);
   /* background-color */
-  background-color: #f1cfed;
+  background-color: var(--color-fondo);
 }
 
 /* TODO: Define variables usando HSL */
 :root {
   /* Color primario base usando HSL */
-  --color-primario: hsl(220, 80%, 50%);
+
   /* Ejemplo: --color-primario: hsl(220, 80%, 50%); */
-
+    --color-primario: hsl(263, 91%, 21%);
   /* Variación clara del color primario */
-
+    --color-primario-claro: hsl(263, 56%, 85%);
   /* Usa el mismo Hue pero incrementa Lightness */
-  --color-primario-claro: hsl(282, 68%, 60%);
-  /* Variación oscura del color primario */
-  --color-primario-oscuro: hsl(282, 68%, 30%);
-  /* Usa el mismo Hue pero reduce Lightness */
+    --color-claro: hsl(266, 26%, 89%);
 
+  
+  /* Variación oscura del color primario */
+  --color-primario-oscura: hsl(263, 45%, 37%);
+
+  /* Usa el mismo Hue pero reduce Lightness */
+  --color-secundario: hsl(266, 72%, 75%);
+  
   /* Colores de texto y fondo */
-  --color-texto: hsl(0, 0%, 20%);
-  --color-fondo: hsl(68, 44%, 93%);
+  --color-texto: var(--color-primario-oscura);
+  --color-fondo: var(--color-primario-claro);
 
   /* Espaciado */
   --espaciado: 1rem;
 }
 
-
-/* 3 */
 /*
  * INVESTIGACIÓN: ¿Qué es HSL y por qué usarlo?
  * 
+ * TODO: Responde estas preguntas en este comentario:
+ * 
  * 1. ¿Qué significa cada valor en hsl()?
- *    - H (Hue): representa el tono del color, es el ángulo del círculo cromático.
- *    - S (Saturation): representa la saturación o intensidad del color.
- *    - L (Lightness): representa la claridad del color, entre más alto, más claro; entre más bajo, más oscuro.
+ *    - H (Hue): 
+ *    - S (Saturation): 
+ *    - L (Lightness): 
  * 
  * 2. ¿Por qué HSL puede ser más útil que HEX o RGB?
- *    - Permite ajustar el color más fácilmente cambiando solo el tono, saturación o luminosidad.
- *    - Es más intuitivo para crear variaciones de un mismo color, como versiones claras u oscuras.
+ *    Escribe al menos 2 razones:
+ *    - 
+ *    - 
  * 
  * 3. Ejemplo práctico: ¿Cuándo usarías HSL en un proyecto real?
- *    - Cuando querés diseñar una paleta de colores consistente para un sitio web.
- *    - Cuando necesitás modificar rápidamente colores claros/oscuro sin cambiar toda la paleta.
+ *    - 
  */
 
-
-/* 4 */
-/* TODO: Estiliza el header usando Flexbox */
+ /* TODO: Estiliza el header usando Flexbox */
 .header {
   /* background-color usando variable */
   background-color: var(--color-primario);
   /* padding usando rem */
-  padding: var(--espaciado);
+  padding: 1rem;
   /* box-shadow sutil */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 1px 10px rgba(0, 50, 0, 0.8);
 }
 
 .header-contenido {
   /* max-width para limitar ancho */
   max-width: 1200px;
   /* margin: 0 auto para centrar */
-  margin: 0 auto;
+  margin: 1rem auto;
   /* padding usando rem */
-  padding: var(--espaciado);
+  padding: .5rem;
   /* text-align: center */
   text-align: center;
 }
 
 .titulo-principal {
   /* font-size usando rem (2.5rem - 3rem) */
-  font-size: 2.5rem;
+  font-size: 5rem;
   /* margin-bottom usando rem */
-  margin-bottom: var(--espaciado);
+  margin-bottom: 2rem;
   /* color usando variable HSL */
-  color: var(--color-texto);
+  color: var(--color-primario-claro);
 }
 
 .descripcion {
   /* font-size usando rem */
-  font-size: 1.25rem;
+  font-size: 2rem;
   /* color más claro para contraste */
-  color: var(--color-fondo);
+  color: var(--color-claro);
 }
 
-/* 5 */
+/* 5. Galería con Grid */
 /* TODO: Implementa Grid para la galería */
 .contenedor {
   /* max-width usando rem */
-  max-width: 1200px;
+  max-width: 120rem;
   /* margin: 0 auto */
-  margin: 0 auto;
+  margin: 1rem auto;
   /* padding usando rem */
   padding: var(--espaciado);
 }
@@ -124,59 +136,64 @@ body {
 .galeria {
   /* display: grid */
   display: grid;
-  /* grid-template-columns: 3 columnas iguales con repeat() */
-  grid-template-columns: repeat(3, 1fr);
-  /* gap entre tarjetas */
-  gap: var(--espaciado);
+  /* siempre 3 columnas un poco más grandes */
+  grid-template-columns: repeat(3, minmax(260px, 1fr));
+  /* gap entre tarjetas */  
+  gap: 2rem;
+  justify-content: center;
 }
 
-/* 6 - TARJETAS DE FOTOS*/
 /* TODO: Estiliza las tarjetas */
 .foto-tarjeta {
   /* background-color */
-  background-color: var(--color-fondo);
+  background-color: var(--color-primario-claro);
   /* border-radius */
   border-radius: 8px;
   /* box-shadow */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   /* overflow: hidden para esquinas redondeadas de imagen */
   overflow: hidden;
   /* transition para hover */
   transition: transform 0.3s ease;
+  /* ancho máximo un poco mayor */
+  max-width: 340px;
+  margin: 0 auto;
 }
 
 .foto-tarjeta img {
-  /* width: 100% */
   width: 100%;
-  /* height: 250px */
-  height: 250px;
-  /* object-fit: cover */
-  object-fit: cover;
-  /* display: block */
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
   display: block;
+  border: 0;
+  background-color: #f6f4ff;
 }
 
 .foto-info {
   /* padding usando rem */
-  padding: var(--espaciado);
+  padding:2rem;
+  background-color: var(--color-claro);
 }
 
 .foto-titulo {
   /* font-size usando rem */
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   /* margin-bottom */
-  margin-bottom: var(--espaciado);
+  margin-bottom: 1rem;
   /* color usando variable */
-  color: var(--color-texto);
+  color: var(--color-primario);
+  text-align: center;
 }
 
 .foto-descripcion {
   /* font-size usando rem */
-  font-size: 1.25rem;
+  font-size: 1rem;
   /* color más claro */
-  color: var(--color-fondo);
+  color: var(--color-secundario);
   /* margin: 0 */
-  margin: 0;
+  margin: auto;
+  text-align: center;
 }
 
 /* TODO: Efecto hover */
@@ -184,54 +201,20 @@ body {
   /* transform: translateY(-4px) */
   transform: translateY(-4px);
   /* box-shadow más pronunciada */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 10px 10px rgba(51, 5, 86, 0.5);
 }
-
-/* 7 FOOTER */
-
 /* TODO: Estiliza el footer */
 .footer {
   /* background-color usando variable oscura */
-  background-color: var(--color-secundario);
+  background-color: var(--color-primario-oscura);
   /* color claro */
-  color: var(--color-fondo);
+  color: var(--color-claro);
   /* text-align: center */
   text-align: center;
   /* padding usando rem */
   padding: var(--espaciado);
   /* margin-top usando rem */
   margin-top: var(--espaciado);
-}
-
-/* 8 - media queries */
-
-/* TODO: Tablets - 2 columnas */
-@media (max-width: 768px) {
-  .galeria {
-    /* grid-template-columns: 2 columnas */
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .titulo-principal {
-    /* font-size más pequeño */
-    font-size: 1.25rem;
-  }
-}
-
-/* TODO: Móviles - 1 columna */
-@media (max-width: 480px) {
-  .galeria {
-    /* grid-template-columns: 1 columna */
-    grid-template-columns: 1fr;
-  }
-
-  .titulo-principal {
-    /* font-size aún más pequeño */
-    font-size: 1.25rem;
-  }
-
-  .contenedor {
-    /* padding reducido */
-    padding: var(--espaciado);
-  }
+  /* font-size usando rem */
+  font-size: 1.25rem;
 }
